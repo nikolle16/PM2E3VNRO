@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PM2E3VNRO.Views.Listado"
+             xmlns:controladores="clr-namespace:PM2E3VNRO.Controllers"
+             x:Name="PM2E3VNRO"
+             BackgroundImageSource="fondoskzoo.jpg"
+             Title="Listado">
+    
+    <ContentPage.Resources>
+        <controladores:Convert x:Key="toStreamImageSource"/>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <Frame
+            BackgroundColor="Transparent">
+            <ListView 
+                x:Name="viewListado" 
+                SelectionMode="Single" 
+                ItemSelected="OnItemSelected"
+                RowHeight="80" 
+                BackgroundColor="#80b4ff9a">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="40"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="80"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label 
+                                    Grid.Column="0"
+                                    Text="{Binding Id_nota}"
+                                    TextColor="Black"
+                                    FontSize="Subtitle"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"/>
+
+                                <Label 
+                                    Grid.Column="1"
+                                    Text="{Binding Descripcion}"
+                                    TextColor="Black"
+                                    FontSize="Subtitle"
+                                    VerticalOptions="Center"/>
+
+                                <Label 
+                                    Grid.Column="2"
+                                    Text="{Binding Fecha}"
+                                    TextColor="Black"
+                                    FontSize="Subtitle"
+                                    VerticalOptions="Center"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Frame>
+    </ScrollView>
+</ContentPage>
